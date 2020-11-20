@@ -13,8 +13,8 @@ status: [spec](https://w3c.github.io/webappsec-secure-contexts/#is-origin-trustw
 trezord-go requires go >= 1.12
 
 ```
-go get github.com/trezor/trezord-go
-go build github.com/trezor/trezord-go
+go get github.com/BlakeWeissman/trezord-go
+go build github.com/BlakeWeissman/trezord-go
 ./trezord-go -h
 ```
 

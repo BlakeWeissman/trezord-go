@@ -2101,7 +2101,6 @@ int API_EXPORTED libusb_set_auto_detach_kernel_driver(
 }
 
 /** \ingroup libusb_lib
- * \deprecated Use libusb_set_option() instead using the
  * \ref LIBUSB_OPTION_LOG_LEVEL option.
  */
 void API_EXPORTED libusb_set_debug(libusb_context *ctx, int level)
