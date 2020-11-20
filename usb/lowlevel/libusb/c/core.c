@@ -445,7 +445,6 @@ if (cfg != desired)
   * - libusb_reset_device()
   * - libusb_set_auto_detach_kernel_driver()
   * - libusb_set_configuration()
-  * - libusb_set_debug()
   * - libusb_set_log_cb()
   * - libusb_set_interface_alt_setting()
   * - libusb_set_iso_packet_lengths()
@@ -2098,23 +2097,6 @@ int API_EXPORTED libusb_set_auto_detach_kernel_driver(
 
 	dev_handle->auto_detach_kernel_driver = enable;
 	return LIBUSB_SUCCESS;
-}
-
-/** \ingroup libusb_lib
- * \ref LIBUSB_OPTION_LOG_LEVEL option.
- */
-void API_EXPORTED libusb_set_debug(libusb_context *ctx, int level)
-{
-#if defined(ENABLE_LOGGING) && !defined(ENABLE_DEBUG_LOGGING)
-	ctx = usbi_get_context(ctx);
-	if (!ctx->debug_fixed) {
-		level = CLAMP(level, LIBUSB_LOG_LEVEL_NONE, LIBUSB_LOG_LEVEL_DEBUG);
-		ctx->debug = (enum libusb_log_level)level;
-	}
-#else
-	UNUSED(ctx);
-	UNUSED(level);
-#endif
 }
 
 /** \ingroup libusb_lib
